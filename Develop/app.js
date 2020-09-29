@@ -103,7 +103,6 @@ async function init() {
 
         async function createNewEntry() {
             const confirmE = await confirmEmp();
-            // console.log(confirmE.addNewEmp);
 
             if (confirmE.addNewEmp) {
                 const newEmployee = await addNewEmployee();
@@ -118,6 +117,7 @@ async function init() {
                         )
                     )
                 };
+
                 if (newEmployee.empRole === 'Intern') {
                     team.push(
                         new Intern(
@@ -128,21 +128,19 @@ async function init() {
                         )
                     );
                 };
-                console.log('this is the new team', team)
 
                 createNewEntry();
-
-            }
-        }
-
-
-
-
-
-
-        // console.log('this is the manager', manager);
-        // console.log('this is the array', team);
-
+            };
+            if (!confirmE.addNewEmp) {
+                // console.log('this is the new team', team);
+                const testing = render(team);
+                console.log(testing);
+                fs.writeFile(outputPath, testing, err => {
+                    if (err) throw err;
+                    console.log("Your file has been created!");
+                });
+            };
+        };
 
 
     } catch (err) {
