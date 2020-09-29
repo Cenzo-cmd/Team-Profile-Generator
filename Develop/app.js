@@ -10,21 +10,13 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-function promptUser() {
+const team = [];
+
+function promptManager() {
     return inquirer.prompt([{
             type: 'input',
-            message: 'What is your name?',
+            message: 'What is the name of the Manager?',
             name: 'name'
-        },
-        {
-            type: 'list',
-            message: 'What is your role?',
-            choices: [
-                "Manager",
-                "Engineer",
-                "Intern"
-            ],
-            name: 'role'
         },
         {
             type: 'input',
@@ -35,18 +27,131 @@ function promptUser() {
             type: 'input',
             message: 'What is your email address?',
             name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'What is your office number?',
+            name: "officeNumber"
         }
     ]);
 };
 
+function confirmEmp() {
+    return inquirer.prompt([{
+        type: 'confirm',
+        message: 'Do you want to add a new employee?',
+        name: 'addNewEmp'
+    }]);
+};
+
+function addNewEmployee() {
+    return inquirer.prompt([{
+            type: 'list',
+            message: "What is your role?",
+            choices: [
+                "Engineer",
+                "Intern"
+            ],
+            name: 'empRole'
+        },
+        {
+            type: 'input',
+            message: 'What is your name?',
+            name: 'empName'
+        },
+        {
+            type: 'input',
+            message: 'What is your ID?',
+            name: 'empId'
+        },
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'empEmail'
+        },
+        {
+            type: 'input',
+            message: 'What is your Github user name?',
+            name: 'empGithub',
+            when: (input) => input.empRole === "Engineer"
+        },
+        {
+            type: 'input',
+            message: 'What school did you attend?',
+            name: 'empSchool',
+            when: (input) => input.empRole === 'Intern'
+        }
+    ]);
+};
+
+
+
 async function init() {
     try {
-        const answers = await promptUser();
+        const answers = await promptManager();
+
+        manager = new Manager(
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.officeNumber
+        );
+
+        team.push(manager);
+
+        createNewEntry();
+
+        async function createNewEntry() {
+            const confirmE = await confirmEmp();
+            // console.log(confirmE.addNewEmp);
+
+            if (confirmE.addNewEmp) {
+                const newEmployee = await addNewEmployee();
+                // console.log(newEmployee);
+                if (newEmployee.empRole === 'Engineer') {
+                    team.push(
+                        new Engineer(
+                            newEmployee.empName,
+                            newEmployee.empId,
+                            newEmployee.empEmail,
+                            newEmployee.empGithub
+                        )
+                    )
+                };
+                if (newEmployee.empRole === 'Intern') {
+                    team.push(
+                        new Intern(
+                            newEmployee.empName,
+                            newEmployee.empId,
+                            newEmployee.empEmail,
+                            newEmployee.empSchool
+                        )
+                    );
+                };
+                console.log('this is the new team', team)
+
+                createNewEntry();
+
+            }
+        }
+
+
+
+
+
+
+        // console.log('this is the manager', manager);
+        // console.log('this is the array', team);
+
+
 
     } catch (err) {
         if (err) console.log(err);
     };
 };
+
+// run the init function
+init();
 
 
 // Write code to use inquirer to gather information about the development team members,
