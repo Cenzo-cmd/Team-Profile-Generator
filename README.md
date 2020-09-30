@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 
 
   ![License](https://img.shields.io/badge/License-MIT_License-red)
     
   # Team Profile Generator
+=======
+   # 📋 Team Profile Generator 📋
+
+![License](https://img.shields.io/badge/License-MIT_License-red)
+
+>>>>>>> 54da45d458b24e060c434948cd4afeda3ed0e41f
 
   ## Description
 
