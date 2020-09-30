@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { doesNotMatch } = require("assert");
 
 const team = [];
 
@@ -20,6 +21,8 @@ function promptManager() {
             validate: async function(input) {
                 if (input.trim() === '') {
                     return 'You need to Enter a valid name.'
+                } else {
+                    return true;
                 }
             }
         },
@@ -31,7 +34,14 @@ function promptManager() {
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'email'
+            name: 'email',
+            validate: async function(input) {
+                if (!input.includes('@')) {
+                    return 'Please enter a valid email'
+                } else {
+                    return true;
+                }
+            }
         },
         {
             type: 'input',
@@ -62,7 +72,14 @@ function addNewEmployee() {
         {
             type: 'input',
             message: 'What is your name?',
-            name: 'empName'
+            name: 'empName',
+            validate: async function(input) {
+                if (input.trim() === '') {
+                    return 'You need to Enter a valid name.'
+                } else {
+                    return true;
+                }
+            }
         },
         {
             type: 'input',
@@ -72,7 +89,14 @@ function addNewEmployee() {
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'empEmail'
+            name: 'empEmail',
+            validate: async function(input) {
+                if (!input.includes('@')) {
+                    return 'Please enter a valid email'
+                } else {
+                    return true;
+                }
+            }
         },
         {
             type: 'input',
@@ -152,6 +176,8 @@ async function init() {
         if (err) console.log(err);
     };
 };
+
+
 
 // validation functions
 
