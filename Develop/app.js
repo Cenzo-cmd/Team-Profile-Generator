@@ -16,7 +16,12 @@ function promptManager() {
     return inquirer.prompt([{
             type: 'input',
             message: 'What is the name of the Manager?',
-            name: 'name'
+            name: 'name',
+            validate: async function(input) {
+                if (input.trim() === '') {
+                    return 'You need to Enter a valid name.'
+                }
+            }
         },
         {
             type: 'input',
@@ -147,6 +152,12 @@ async function init() {
         if (err) console.log(err);
     };
 };
+
+// validation functions
+
+// const confirmRealName = async(input) => {
+//     if (input.trim() === '') return 'Please enter a valid name';
+// };
 
 // run the init function
 init();
