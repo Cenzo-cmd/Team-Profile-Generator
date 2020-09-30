@@ -161,9 +161,7 @@ async function init() {
                 createNewEntry();
             };
             if (!confirmE.addNewEmp) {
-                // console.log('this is the new team', team);
                 const testing = render(team);
-                console.log(testing);
                 fs.writeFile(outputPath, testing, err => {
                     if (err) throw err;
                     console.log("Your file has been created!");
