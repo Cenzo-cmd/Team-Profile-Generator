@@ -3,9 +3,6 @@
 
    # 📋 Team Profile Generator 📋
 
-![License](https://img.shields.io/badge/License-MIT_License-red)
-
-
   ## Description
 
   This project generates a Employee profile based on the inputs that are selected.  There are 3 employee roles which are manager, engineer and intern.  Depending on which role you select, the are different prompts to enter.  The user can add as many employees as they choose and when they are finished and do not want to enter any more team members, this program will automatically generate a well rounded html file.
