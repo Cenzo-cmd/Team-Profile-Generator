@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-
 
   ![License](https://img.shields.io/badge/License-MIT_License-red)
-    
-  # Team Profile Generator
-=======
+
    # 📋 Team Profile Generator 📋
 
 ![License](https://img.shields.io/badge/License-MIT_License-red)
 
->>>>>>> 54da45d458b24e060c434948cd4afeda3ed0e41f
 
   ## Description
 
@@ -29,22 +24,18 @@
     -[Creator](#creator)
     -[Table of Contents](#table-of-contents)
     -[Installation](#installation)
-    -[Usage](#usage)
-    -[Contributing](#contributing-guidelines)
     -[Test Instructions](#test-instructions)
     -[License](#license)
+    
+    
+  
+ [![Video 1](./Assets/img/team1.png)](https://drive.google.com/file/d/14zJSuMaIP2KRx5hbBb8ouxlf9uK01EoT/view)
+[![Video 2](./Assets/img/team2.png)](https://drive.google.com/file/d/16iTVsUzMxhDIxIQ5A8sb1s20BPidJ7cy/view)
+[![Video 3](./Assets/img/team3.png)](https://drive.google.com/file/d/1EF-4SEE5GHA8Yc7MZZnixniIA_Wd1Czc/view)
 
   ## Installation Instructions
 
   Simply clone this repo to your local machine.  Open this code in VS code or similar and run 'node app.js' .  In order for this program to run, node.js must be installed.
-
-  ## Usage
-
-  
-
-  ## Contributing Guidelines
-
-  
 
   ## Test instructions
 
