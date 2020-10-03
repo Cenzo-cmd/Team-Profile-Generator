@@ -5,7 +5,7 @@
 
   ## Description
 
-  This project generates a Employee profile based on the inputs that are selected.  There are 3 employee roles which are manager, engineer and intern.  Depending on which role you select, the are different prompts to enter.  The user can add as many employees as they choose and when they are finished and do not want to enter any more team members, this program will automatically generate a well rounded html file.
+  This project generates a Employee profile based on the inputs that are selected.  There are 3 employee roles which are manager, engineer and intern.  Depending on which role you select, the are different prompts to enter.  The user can add as many employees as they choose and when they are finished and do not want to enter any more team members, this program will automatically generate a well rounded html file.  There are 3 videos towards the bottom of this readme, if you click on the image the video will start.
 
   ## Creator
 
